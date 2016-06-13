@@ -103,8 +103,8 @@ public interface TestModel {
       return (T) this;
     }
 
-    public T TEXT(List TEXT_) {
-      TEXTAdapter.marshal(contentValues, TEXT, TEXT_);
+    public T TEXT(List text_) {
+      TEXTAdapter.marshal(contentValues, TEXT, text_);
       return (T) this;
     }
 
