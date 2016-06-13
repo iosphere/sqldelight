@@ -32,6 +32,7 @@ import com.squareup.sqldelight.model.javaType
 import com.squareup.sqldelight.model.marshaledValue
 import com.squareup.sqldelight.model.methodName
 import com.squareup.sqldelight.model.paramName
+import java.util.Locale.US
 import javax.lang.model.element.Modifier.FINAL
 import javax.lang.model.element.Modifier.PRIVATE
 import javax.lang.model.element.Modifier.PROTECTED
@@ -75,9 +76,9 @@ internal class MarshalSpec(private val table: Table) {
         marshal.addMethod(contentValuesMethod(column)
             .addModifiers(PUBLIC)
             .returns(TypeVariableName.get("T"))
-            .addParameter(column.javaType, column.paramName(nameAllocator))
+            .addParameter(column.javaType, column.paramName(nameAllocator).toLowerCase(US))
             .addStatement("${column.adapterField(nameAllocator)}.marshal($CONTENTVALUES_FIELD, " +
-                "${column.constantName(nameAllocator)}, ${column.paramName(nameAllocator)})")
+                "${column.constantName(nameAllocator)}, ${column.paramName(nameAllocator).toLowerCase(US)})")
             .addStatement("return (T) this")
             .build())
       }
