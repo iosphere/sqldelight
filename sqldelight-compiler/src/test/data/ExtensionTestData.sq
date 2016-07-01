@@ -1,0 +1,9 @@
+CREATE TABLE test (
+  _id INTEGER NOT NULL,
+  test_column1 BLOB NOT NULL,
+  test_column2 INTEGER NOT NULL
+);
+
+select_all:
+SELECT AsEWKB(Centroid(test_column1)) AS geometry
+FROM test;

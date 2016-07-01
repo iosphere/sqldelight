@@ -296,6 +296,8 @@ expr
  | ( ( K_NOT )? K_EXISTS )? '(' select_stmt ')'
  | K_CASE expr? ( K_WHEN expr K_THEN return_expr )+ ( K_ELSE expr )? K_END
  | raise_function
+ | K_ASEWKB '(' expr ')'
+ | K_CENTROID '(' expr ')'
  ;
 
 return_expr
@@ -822,6 +824,8 @@ K_WHEN : W H E N;
 K_WHERE : W H E R E;
 K_WITH : W I T H;
 K_WITHOUT : W I T H O U T;
+K_ASEWKB : A S E W K B;
+K_CENTROID : C E N T R O I D;
 
 IDENTIFIER
  : '"' (~'"' | '""')* '"'
